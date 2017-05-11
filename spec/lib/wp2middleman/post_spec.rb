@@ -25,19 +25,19 @@ describe WP2Middleman::Post do
   describe "#post_date" do
     subject { post_one.post_date }
 
-    it { is_expected.to eq "2012-06-08 03:21:41" }
+    it { is_expected.to eq "2016-12-31 03:21:41" }
   end
 
   describe "#date_published" do
     subject { post_one.date_published }
 
-    it { is_expected.to eq "2012-06-08" }
+    it { is_expected.to eq "2016-12-31" }
   end
 
   describe "#date_time_published" do
     subject { post_one.date_time_published }
 
-    it { is_expected.to eq "2012-06-08 03:21:41" }
+    it { is_expected.to eq "2016-12-31 03:21:41" }
   end
 
   describe "#status" do
