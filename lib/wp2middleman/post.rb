@@ -12,8 +12,12 @@ module WP2Middleman
       post.css('title').text
     end
 
+    def link
+      post.css('link').text
+    end
+
     def valid?
-      !(post_date.nil? || title.nil? || date_time_published.nil? || content.nil?)
+      !(post_date.nil? || title.nil? || date_time_published.nil? || content.nil? || link.nil?)
     end
 
     def attachment?

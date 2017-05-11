@@ -34,7 +34,7 @@ describe WP2Middleman::Migrator do
       allow(post).to receive(:file_content) { "content" }
       allow(migrator).to receive(:valid_posts) { [post] }
 
-      expect(File).to receive(:write).with("#{Dir.pwd}/export/2012-06-08-A-Title.html.markdown", "content")
+      expect(File).to receive(:write).with("#{Dir.pwd}/export/2016-12-translators.html.markdown", "content")
 
       migrator.migrate
     end

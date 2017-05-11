@@ -13,7 +13,13 @@ describe WP2Middleman::Post do
   describe "#title" do
     subject { post_one.title }
 
-    it { is_expected.to eq "A Title" }
+    it { is_expected.to eq "Translators, Inc." }
+  end
+
+  describe "#link" do
+    subject { post_one.link }
+
+    it { is_expected.to eq "http://www.OFReport.com/2016/12/translators/" }
   end
 
   describe "#post_date" do
@@ -78,13 +84,14 @@ describe WP2Middleman::Post do
   end
 
   describe "#valid?" do
-    def post(post_date: Date.new(2014,2,19), title: "Title", date_time_published: Time.new(2014,2,19,1,2,3), content: "content")
+    def post(post_date: Date.new(2014,2,19), title: "Title", date_time_published: Time.new(2014,2,19,1,2,3), content: "content", link: "http://www.OFReport.com/")
       post = WP2Middleman::Post.new(double)
 
       allow(post).to receive(:post_date) { post_date }
       allow(post).to receive(:title) { title }
       allow(post).to receive(:date_time_published) { date_time_published }
       allow(post).to receive(:content) { content }
+      allow(post).to receive(:link) { link }
 
       post
     end
@@ -107,6 +114,10 @@ describe WP2Middleman::Post do
 
     it "is not valid without content" do
       expect(post(content: nil)).to_not be_valid
+    end
+
+    it "is not valid without a link" do
+      expect(post(link: nil)).to_not be_valid
     end
   end
 end
