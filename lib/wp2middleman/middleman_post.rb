@@ -10,18 +10,31 @@ module WP2Middleman
       wp_post.title
     end
 
+    def link
+      wp_post.link
+    end
+
     def title_for_filename
       title.gsub(/[^\w\s_-]+/, '')
         .gsub(/(^|\b\s)\s+($|\s?\b)/, '\\1\\2')
         .gsub(/\s+/, '-')
     end
 
+    def filename_from_permalink
+      link.gsub(/http:\/\/www\.\w+\.\w+\/\d{4}\/\d{2}\//, '')
+    end
+
     def filename
-      "#{date_published}-#{title_for_filename}"
+      "#{date_published_short_slug}-#{filename_from_permalink}"
+        .gsub(/\/$/, '')
     end
 
     def date_published
       wp_post.date_published
+    end
+
+    def date_published_short_slug
+      wp_post.date_published_short_slug
     end
 
     def full_filename output_path
