@@ -1,11 +1,29 @@
-[![Build Status](https://travis-ci.org/mdb/wp2middleman.png?branch=master)](https://travis-ci.org/mdb/wp2middleman)
-[![Code Climate](https://codeclimate.com/github/mdb/wp2middleman/badges/gpa.svg)](https://codeclimate.com/github/mdb/wp2middleman)
-
 # wp2middleman
 
 A command line tool to help move a Wordpress blog to [Middleman](http://middlemanapp.com).
 
 wp2middleman migrates the posts contained in a Wordpress XML export file to Middleman-style markdown files.
+
+---
+**NOTE: This fork has been modified (hacked?) to generate MM post filenames based on the permalink format used in my blog.**
+
+For example, give the following...
+
+```sh
+# Title
+Translators, Inc.
+
+# Permalink
+http://www.OFReport.com/2016/12/translators/
+```
+
+...the filename output for the MM post should be this:
+
+```sh
+2016-12-translators.html.markdown
+```
+
+---
 
 ## Installation
 
